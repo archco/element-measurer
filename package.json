@@ -1,9 +1,9 @@
 {
-  "name": "dom-measurer",
+  "name": "element-measurer",
   "version": "1.0.0",
   "description": "The javascript class for measure size of DOM.",
-  "main": "dist/dom-measurer.js",
-  "module": "dist/dom-measurer.mod.js",
+  "main": "dist/element-measurer.js",
+  "module": "dist/element-measurer.mod.js",
   "directories": {
     "lib": "lib",
     "test": "test"
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/archco/dom-measurer.git"
+    "url": "git+https://github.com/archco/element-measurer.git"
   },
   "keywords": [
     "javascript",
@@ -24,9 +24,9 @@
   "author": "archco",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/archco/dom-measurer/issues"
+    "url": "https://github.com/archco/element-measurer/issues"
   },
-  "homepage": "https://github.com/archco/dom-measurer#readme",
+  "homepage": "https://github.com/archco/element-measurer#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",

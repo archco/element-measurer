@@ -13,11 +13,11 @@ const jsRule = {
 };
 
 const Library = {
-  entry: './lib/dom-measurer.js',
+  entry: './lib/element-measurer.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'dom-measurer.js',
-    library: 'DomMeasurer',
+    filename: 'element-measurer.js',
+    library: 'ElementMeasurer',
     libraryTarget: 'window',
   },
   module: {
@@ -29,11 +29,11 @@ const Library = {
 };
 
 const Minify = {
-  entry: './lib/dom-measurer.js',
+  entry: './lib/element-measurer.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'dom-measurer.min.js',
-    library: 'DomMeasurer',
+    filename: 'element-measurer.min.js',
+    library: 'ElementMeasurer',
     libraryTarget: 'window',
   },
   module: {
@@ -45,11 +45,11 @@ const Minify = {
 };
 
 const Mod = {
-  entry: './lib/dom-measurer.js',
+  entry: './lib/element-measurer.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'dom-measurer.mod.js',
-    library: 'DomMeasurer',
+    filename: 'element-measurer.mod.js',
+    library: 'ElementMeasurer',
     libraryTarget: 'umd',
   },
   module: {

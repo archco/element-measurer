@@ -1,2 +1,2 @@
-# dom-measurer
-The javascript class for measure size of DOM.
+# ElementMeasurer
+The javascript class for measure size of Element.

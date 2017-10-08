@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["DomMeasurer"] = factory();
+		exports["ElementMeasurer"] = factory();
 	else
-		root["DomMeasurer"] = factory();
+		root["ElementMeasurer"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -86,11 +86,11 @@ Object.defineProperty(exports, "__esModule", {
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var DomMeasurer = function DomMeasurer() {
-  _classCallCheck(this, DomMeasurer);
+var ElementMeasurer = function ElementMeasurer() {
+  _classCallCheck(this, ElementMeasurer);
 };
 
-exports.default = DomMeasurer;
+exports.default = ElementMeasurer;
 ;
 
 /***/ })

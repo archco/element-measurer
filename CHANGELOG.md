@@ -8,5 +8,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.0.0] - 2017-10-07
 
-[Unreleased]: https://github.com/archco/element-util/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/archco/element-util/compare/e13504e...v1.0.0
+[Unreleased]: https://github.com/archco/element-measurer/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/archco/element-measurer/compare/e13504e...v1.0.0

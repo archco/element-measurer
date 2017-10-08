@@ -1,4 +1,4 @@
-window["DomMeasurer"] =
+window["ElementMeasurer"] =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -77,13 +77,13 @@ Object.defineProperty(exports, "__esModule", {
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var DomMeasurer = function DomMeasurer() {
-  _classCallCheck(this, DomMeasurer);
+var ElementMeasurer = function ElementMeasurer() {
+  _classCallCheck(this, ElementMeasurer);
 };
 
-exports.default = DomMeasurer;
+exports.default = ElementMeasurer;
 ;
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=dom-measurer.js.map
+//# sourceMappingURL=element-measurer.js.map
