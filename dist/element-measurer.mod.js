@@ -89,6 +89,12 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var ElementMeasurer = function () {
+  /**
+   * constructor
+   *
+   * @param  {Element} [ target = document.documentElement ]
+   * @return {void}
+   */
   function ElementMeasurer() {
     var target = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.documentElement;
 
@@ -99,6 +105,13 @@ var ElementMeasurer = function () {
   }
 
   // public
+
+  /**
+   * Returns inner width of an element in pixels.
+   *
+   * @return {Number}
+   */
+
 
   _createClass(ElementMeasurer, [{
     key: 'setTarget',
@@ -121,15 +134,20 @@ var ElementMeasurer = function () {
   }, {
     key: '_checkTarget',
     value: function _checkTarget() {
-      if (this.target === document.documentElement || this.target === document.body) {
-        this._isDocument = true;
-      }
+      this._isDocument = this.target === document.documentElement || this.target === document.body;
     }
   }, {
     key: 'clientWidth',
     get: function get() {
       return this._isDocument ? window.innerWidth : this.target.getBoundingClientRect().width;
     }
+
+    /**
+     * Returns inner height of an element in pixels.
+     *
+     * @return {Number}
+     */
+
   }, {
     key: 'clientHeight',
     get: function get() {
@@ -139,11 +157,25 @@ var ElementMeasurer = function () {
     key: 'scrollTop',
     get: function get() {
       return this._isDocument ? window.pageYOffset : this.target.scrollTop;
+    },
+    set: function set(val) {
+      if (this._isDocument) {
+        window.scrollTo(this.scrollLeft, val);
+      } else {
+        this.target.scrollTop = val;
+      }
     }
   }, {
     key: 'scrollLeft',
     get: function get() {
       return this._isDocument ? window.pageXOffset : this.target.scrollLeft;
+    },
+    set: function set(val) {
+      if (this._isDocument) {
+        window.scrollTo(val, this.scrollTop);
+      } else {
+        this.target.scrollLeft = val;
+      }
     }
   }, {
     key: 'scrollWidth',
