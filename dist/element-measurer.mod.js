@@ -89,7 +89,9 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var ElementMeasurer = function () {
-  function ElementMeasurer(target) {
+  function ElementMeasurer() {
+    var target = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.documentElement;
+
     _classCallCheck(this, ElementMeasurer);
 
     this._isDocument = false;
@@ -124,12 +126,12 @@ var ElementMeasurer = function () {
       }
     }
   }, {
-    key: 'innerWidth',
+    key: 'clientWidth',
     get: function get() {
       return this._isDocument ? window.innerWidth : this.target.getBoundingClientRect().width;
     }
   }, {
-    key: 'innerHeight',
+    key: 'clientHeight',
     get: function get() {
       return this._isDocument ? window.innerHeight : this.target.getBoundingClientRect().height;
     }
@@ -156,12 +158,12 @@ var ElementMeasurer = function () {
   }, {
     key: 'maxScrollTop',
     get: function get() {
-      return this.scrollWidth - this.innerWidth;
+      return this.scrollWidth - this.clientWidth;
     }
   }, {
     key: 'maxScrollLeft',
     get: function get() {
-      return this.scrollHeight - this.innerHeight;
+      return this.scrollHeight - this.clientHeight;
     }
   }]);
 

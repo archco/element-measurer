@@ -28,15 +28,15 @@ describe('ElementMeasurer', () => {
     });
   });
 
-  describe('#innerWidth and innerHeight', () => {
-    it('Document innerWidth is equal to viewport innerWidth.', () => {
+  describe('#clientWidth and clientHeight', () => {
+    it('Document clientWidth is equal to window.innerWidth.', () => {
       let docMeasurer = new ElementMeasurer(document);
-      expect(docMeasurer.innerWidth).to.be.equal(window.innerWidth);
+      expect(docMeasurer.clientWidth).to.be.equal(window.innerWidth);
     });
-    it('Element innerHeight is equal to Element.clientHeight.', () => {
+    it('Element clientHeight is equal to Element.clientHeight.', () => {
       let elmMeasurer = new ElementMeasurer('#mocha');
       let elm = document.querySelector('#mocha');
-      expect(elmMeasurer.innerHeight).to.be.equal(elm.clientHeight);
+      expect(elmMeasurer.clientHeight).to.be.equal(elm.clientHeight);
     });
   });
 
@@ -62,9 +62,10 @@ describe('ElementMeasurer', () => {
   });
 
   describe('#maxScrollTop and maxScrollLeft', () => {
-    it('maxScrollTop = scrollHeight - innerHeight', () => {
+    it('maxScrollTop = scrollHeight - clientHeight', () => {
       let e = new ElementMeasurer(document);
-      expect(e.maxScrollTop).to.be.equal(e.scrollHeight - e.innerHeight);
+      console.log(e);
+      expect(e.maxScrollTop).to.be.equal(e.scrollHeight - e.clientHeight);
     });
   });
 });
