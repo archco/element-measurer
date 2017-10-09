@@ -115,6 +115,13 @@ var ElementMeasurer = function () {
 
   _createClass(ElementMeasurer, [{
     key: 'setTarget',
+
+
+    /**
+     * Set target element.
+     *
+     * @param {Element|String|Window|Document} val
+     */
     value: function setTarget(val) {
       if (val instanceof Element) {
         this.target = val;
@@ -153,11 +160,25 @@ var ElementMeasurer = function () {
     get: function get() {
       return this._isDocument ? window.innerHeight : this.target.getBoundingClientRect().height;
     }
+
+    /**
+     * Gets the number of pixels that an element's content is scrolled vertically.
+     *
+     * @return {Number}
+     */
+
   }, {
     key: 'scrollTop',
     get: function get() {
       return this._isDocument ? window.pageYOffset : this.target.scrollTop;
-    },
+    }
+
+    /**
+     * Sets scrolled vertically.
+     *
+     * @param  {Number} val
+     */
+    ,
     set: function set(val) {
       if (this._isDocument) {
         window.scrollTo(this.scrollLeft, val);
@@ -165,11 +186,25 @@ var ElementMeasurer = function () {
         this.target.scrollTop = val;
       }
     }
+
+    /**
+     * Gets the number of pixels that an element's content is scrolled to the left.
+     *
+     * @return {Number}
+     */
+
   }, {
     key: 'scrollLeft',
     get: function get() {
       return this._isDocument ? window.pageXOffset : this.target.scrollLeft;
-    },
+    }
+
+    /**
+     * Sets scrolled to the left.
+     *
+     * @param  {Number} val
+     */
+    ,
     set: function set(val) {
       if (this._isDocument) {
         window.scrollTo(val, this.scrollTop);
@@ -177,21 +212,49 @@ var ElementMeasurer = function () {
         this.target.scrollLeft = val;
       }
     }
+
+    /**
+     * Returns the width of the entire content of an element.
+     *
+     * @return {Number}
+     */
+
   }, {
     key: 'scrollWidth',
     get: function get() {
       return this.target.scrollWidth;
     }
+
+    /**
+     * Return the heightof the entire content of an element.
+     *
+     * @return {Number}
+     */
+
   }, {
     key: 'scrollHeight',
     get: function get() {
       return this.target.scrollHeight;
     }
+
+    /**
+     * Returns maximum top scroll offset possible for the element.
+     *
+     * @return {Number}
+     */
+
   }, {
     key: 'maxScrollTop',
     get: function get() {
       return this.scrollWidth - this.clientWidth;
     }
+
+    /**
+     * Returns maximum left scroll offset possible for the element.
+     *
+     * @return {Number}
+     */
+
   }, {
     key: 'maxScrollLeft',
     get: function get() {
