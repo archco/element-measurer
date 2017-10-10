@@ -12,10 +12,12 @@ describe('ElementMeasurer', () => {
       // selector string.
       let elmMeasurer = new ElementMeasurer('#test-target');
       expect(elmMeasurer).to.be.instanceof(ElementMeasurer);
+      expect(elmMeasurer.isDocumentTarget()).to.equal(false);
 
       // document.
       let docMeasurer = new ElementMeasurer(document);
       expect(docMeasurer).to.be.instanceof(ElementMeasurer);
+      expect(docMeasurer.isDocumentTarget()).to.equal(true);
 
       // wrong argument.
       let wrongArg = () => new ElementMeasurer({});
