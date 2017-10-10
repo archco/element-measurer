@@ -11,12 +11,13 @@ $ npm install element-measurer
 import ElementMeasurer from 'element-measurer';
 
 // Measurement of Element.
-const emTarget = new ElementMeasurer('#target');
-let max = emTarget.maxScrollTop; // get maxScrollTop.
+// target: Element | 'selector' | document | window
+const targetSize = new ElementMeasurer('#target');
+let max = targetSize.maxScrollTop; // get maxScrollTop.
 
 // Measurement of Document.
-const emDoc = new ElementMeasurer(document);
-emDoc.scrollTop = 200; // set scrollTop.
+const docSize = new ElementMeasurer(document);
+docSize.scrollTop = 200; // set scrollTop.
 ```
 
 ## API
