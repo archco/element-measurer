@@ -237,7 +237,7 @@ var ElementMeasurer = function () {
   }, {
     key: 'maxScrollTop',
     get: function get() {
-      return this.scrollWidth - this.clientWidth;
+      return this.scrollHeight - this.clientHeight;
     }
 
     /**
@@ -249,7 +249,7 @@ var ElementMeasurer = function () {
   }, {
     key: 'maxScrollLeft',
     get: function get() {
-      return this.scrollHeight - this.clientHeight;
+      return this.scrollWidth - this.clientWidth;
     }
   }]);
 
