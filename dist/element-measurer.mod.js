@@ -136,6 +136,18 @@ var ElementMeasurer = function () {
       this._checkTarget();
     }
 
+    /**
+     * Determine whether a target element is document part or sub element.
+     *
+     * @return {Boolean}
+     */
+
+  }, {
+    key: 'isDocumentTarget',
+    value: function isDocumentTarget() {
+      return this._isDocument;
+    }
+
     // private
 
   }, {
