@@ -217,7 +217,7 @@ var ElementMeasurer = function () {
     }
 
     /**
-     * Return the heightof the entire content of an element.
+     * Returns the height of the entire content of an element.
      *
      * @return {Number}
      */
