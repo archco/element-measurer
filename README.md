@@ -21,6 +21,9 @@ docSize.scrollTop = 200; // set scrollTop.
 ```
 
 ## API
+
+![Image: element-and-client](https://github.com/archco/element-measurer/blob/master/element-and-client.png)
+
 ### Properties
 - clientWidth: `ReadOnly` Returns inner width of an element in pixels.
 - clientHeight: `ReadOnly` Returns inner height of an element in pixels.
