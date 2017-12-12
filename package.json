@@ -1,6 +1,6 @@
 {
   "name": "element-measurer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "The javascript class for measure size of DOM.",
   "main": "dist/element-measurer.js",
   "module": "dist/element-measurer.mod.js",
