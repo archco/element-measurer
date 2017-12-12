@@ -128,21 +128,17 @@ var ElementMeasurer = function () {
     }
 
     /**
-     * Determine whether a target element is document part or sub element.
+     * Returns whether a target element is document or not.
      *
      * @return {Boolean}
      */
 
   }, {
-    key: 'isDocumentTarget',
-    value: function isDocumentTarget() {
-      return this._isDocument;
-    }
+    key: '_checkTarget',
+
 
     // private
 
-  }, {
-    key: '_checkTarget',
     value: function _checkTarget() {
       this._isDocument = this.target === document.documentElement || this.target === document.body;
     }
@@ -262,6 +258,12 @@ var ElementMeasurer = function () {
     key: 'maxScrollLeft',
     get: function get() {
       return this.scrollWidth - this.clientWidth;
+    }
+  }, {
+    key: 'isDocumentTarget',
+    get: function get() {
+      this._checkTarget();
+      return this._isDocument;
     }
   }]);
 
