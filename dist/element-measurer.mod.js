@@ -7,7 +7,7 @@
 		exports["ElementMeasurer"] = factory();
 	else
 		root["ElementMeasurer"] = factory();
-})(this, function() {
+})(typeof self !== 'undefined' ? self : this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};

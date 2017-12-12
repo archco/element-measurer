@@ -10,7 +10,7 @@
   },
   "scripts": {
     "test": "echo \"Please see test/test.html in browser.\" && exit 1",
-    "build": "node ./node_modules/webpack/bin/webpack --hide-modules",
+    "build": "npx webpack --hide-modules",
     "watch": "npm run build -- --watch"
   },
   "repository": {
@@ -30,11 +30,11 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.0",
+    "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
     "mocha": "^4.0.1",
-    "uglifyjs-webpack-plugin": "^0.4.6",
-    "webpack": "^3.6.0"
+    "uglifyjs-webpack-plugin": "^1.1.2",
+    "webpack": "^3.10.0"
   },
   "babel": {
     "presets": [
