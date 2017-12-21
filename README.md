@@ -3,7 +3,7 @@ The javascript class for measure size of Element.
 
 ## Install
 ```sh
-$ npm install element-measurer
+npm install element-measurer
 ```
 
 ## Usage
@@ -33,6 +33,26 @@ docSize.scrollTop = 200; // set scrollTop.
 - scrollHeight: `ReadOnly` Returns the height of the entire content of an element.
 - maxScrollTop: `ReadOnly` Returns maximum top scroll offset possible for the element.
 - maxScrollLeft: `ReadOnly` Returns maximum left scroll offset possible for the element.
+
+### Methods
+#### setTarget
+Set target element.
+
+- Syntax
+``` js
+elementMeasurer.setTarget(target);
+```
+- Param `Element|String|Window|Document` target
+- Return `ElementMeasurer`
+
+#### getOffset
+Returns top and left values that indicates offset distance to html document.
+
+- Syntax
+``` js
+let obj = elementMeasurer.getOffset();
+```
+- Return `Object` { top, left }
 
 ## License
 [MIT License](https://github.com/archco/element-measurer/blob/master/LICENSE)

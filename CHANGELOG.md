@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.1.0] - 2017-12-21
+### Added
+- Add method "getOffset()". #2
+
 ## [1.0.2] - 2017-12-12
 ### Changed
 - Change ElementMeasurer.isDocumentTarget to getter.
@@ -13,5 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.0.0] - 2017-10-10
 First release. [README.md](https://github.com/archco/element-measurer/blob/master/README.md)
 
-[Unreleased]: https://github.com/archco/element-measurer/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/archco/element-measurer/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/archco/element-measurer/compare/v1.0.2...v1.1.0
+[1.0.2]: https://github.com/archco/element-measurer/compare/v1.0.0...v1.0.2
 [1.0.0]: https://github.com/archco/element-measurer/compare/361bfbb...v1.0.0
