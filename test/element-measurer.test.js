@@ -82,4 +82,14 @@ describe('ElementMeasurer', function () {
       expect(e.maxScrollTop).to.equal(e.scrollHeight - e.clientHeight);
     });
   });
+
+  describe('#getOffset', function () {
+    it('Returns to object. { top, left }', function () {
+      var em = new ElementMeasurer('#test-target');
+      var offset = em.getOffset();
+      expect(offset).to.be.an('object');
+      expect(offset).to.have.own.property('top');
+      expect(offset).to.have.own.property('left');
+    });
+  });
 });

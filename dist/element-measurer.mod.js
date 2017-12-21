@@ -134,6 +134,7 @@ var ElementMeasurer = function () {
       }
 
       this._checkTarget();
+      return this;
     }
 
     /**
@@ -143,11 +144,33 @@ var ElementMeasurer = function () {
      */
 
   }, {
-    key: '_checkTarget',
+    key: 'getOffset',
 
+
+    /**
+     * Returns top and left values that indicates offset distance to html document.
+     * @see https://stackoverflow.com/questions/442404/retrieve-the-position-x-y-of-an-html-element#answer-442474
+     *
+     * @return {Object}
+     */
+    value: function getOffset() {
+      var elm = this.target;
+      var top = 0;
+      var left = 0;
+
+      while (elm && !isNaN(elm.offsetLeft) && !isNaN(elm.offsetTop)) {
+        left += elm.offsetLeft - elm.scrollLeft;
+        top += elm.offsetTop - elm.scrollTop;
+        elm = elm.offsetParent;
+      }
+
+      return { top: top, left: left };
+    }
 
     // private
 
+  }, {
+    key: '_checkTarget',
     value: function _checkTarget() {
       this._isDocument = this.target === document.documentElement || this.target === document.body;
     }
