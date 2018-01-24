@@ -1,4 +1,4 @@
-type ArrowToTarget = HTMLElement|Window|Document|string;
+type ArrowToTarget = HTMLElement|Element|Window|Document|string;
 
 interface Offsets {
   top: number;
@@ -77,6 +77,8 @@ export default class ElementMeasurer {
   setTarget(val: ArrowToTarget): this {
     if (val instanceof HTMLElement) {
       this.target = val;
+    } else if (val instanceof Element) {
+      this.target = val as HTMLElement;
     } else if (val === window || val === document) {
       this.target = document.documentElement;
     } else if (typeof val === 'string') {

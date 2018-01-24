@@ -1,4 +1,4 @@
-type ArrowToTarget = HTMLElement|Window|Document|string;
+type ArrowToTarget = HTMLElement|Element|Window|Document|string;
 
 interface Offsets {
   top: number;

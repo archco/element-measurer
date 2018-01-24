@@ -180,6 +180,9 @@ var ElementMeasurer = /** @class */ (function () {
         if (val instanceof HTMLElement) {
             this.target = val;
         }
+        else if (val instanceof Element) {
+            this.target = val;
+        }
         else if (val === window || val === document) {
             this.target = document.documentElement;
         }
