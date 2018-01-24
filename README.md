@@ -1,21 +1,24 @@
 # ElementMeasurer
-The javascript class for measure size of Element.
+
+The javascript library class for measures size of Element.
 
 ## Install
-```sh
+
+``` sh
 npm install element-measurer
 ```
 
 ## Usage
-```javascript
+
+``` js
 import ElementMeasurer from 'element-measurer';
 
-// Measurement of Element.
-// target: Element | 'selector' | document | window
+// Measures on a element.
+// target: HTMLElement | 'selector' | document | window
 const targetSize = new ElementMeasurer('#target');
 let max = targetSize.maxScrollTop; // get maxScrollTop.
 
-// Measurement of Document.
+// Measures on the whole Document.
 const docSize = new ElementMeasurer(document);
 docSize.scrollTop = 200; // set scrollTop.
 ```
@@ -25,6 +28,7 @@ docSize.scrollTop = 200; // set scrollTop.
 ![Image: element-and-client](https://github.com/archco/element-measurer/blob/master/element-and-client.png)
 
 ### Properties
+
 - clientWidth: `ReadOnly` Returns inner width of an element in pixels.
 - clientHeight: `ReadOnly` Returns inner height of an element in pixels.
 - scrollTop: Gets or sets of pixels that an element's content is scrolled vertically.
@@ -35,24 +39,28 @@ docSize.scrollTop = 200; // set scrollTop.
 - maxScrollLeft: `ReadOnly` Returns maximum left scroll offset possible for the element.
 
 ### Methods
+
 #### setTarget
+
 Set target element.
 
 - Syntax
-``` js
-elementMeasurer.setTarget(target);
-```
+  ``` js
+  elementMeasurer.setTarget(target);
+  ```
 - Param `Element|String|Window|Document` target
 - Return `ElementMeasurer`
 
 #### getOffset
+
 Returns top and left values that indicates offset distance to html document.
 
 - Syntax
-``` js
-let obj = elementMeasurer.getOffset();
-```
+  ``` js
+  let obj = elementMeasurer.getOffset();
+  ```
 - Return `Object` { top, left }
 
 ## License
+
 [MIT License](https://github.com/archco/element-measurer/blob/master/LICENSE)
