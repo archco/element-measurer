@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Deprecated
+- Getter `.isDocumentTarget` is deprecated. instead use `.isDocument`.
+
 ## [1.1.0] - 2017-12-21
 ### Added
 - Add method "getOffset()". #2
