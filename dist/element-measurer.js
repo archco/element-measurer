@@ -1,5 +1,14 @@
-window["ElementMeasurer"] =
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["ElementMeasurer"] = factory();
+	else
+		root["ElementMeasurer"] = factory();
+})(typeof self !== 'undefined' ? self : this, function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -66,235 +75,143 @@ window["ElementMeasurer"] =
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var ElementMeasurer = function () {
-  /**
-   * constructor
-   *
-   * @param  {Element} [ target = document.documentElement ]
-   * @return {void}
-   */
-  function ElementMeasurer() {
-    var target = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.documentElement;
-
-    _classCallCheck(this, ElementMeasurer);
-
-    this._isDocument = false;
-    this.setTarget(target);
-  }
-
-  // public
-
-  /**
-   * Returns inner width of an element in pixels.
-   *
-   * @return {Number}
-   */
-
-
-  _createClass(ElementMeasurer, [{
-    key: 'setTarget',
-
-
-    /**
-     * Set target element.
-     *
-     * @param {Element|String|Window|Document} val
-     */
-    value: function setTarget(val) {
-      if (val instanceof Element) {
-        this.target = val;
-      } else if (val === window || val === document) {
-        this.target = document.documentElement;
-      } else if (typeof val === 'string') {
-        this.target = document.querySelector(val);
-      } else {
-        throw new TypeError('Target value is not correct type.');
-      }
-
-      this._checkTarget();
-      return this;
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+var ElementMeasurer = /** @class */ (function () {
+    function ElementMeasurer(target) {
+        if (target === void 0) { target = document.documentElement; }
+        this.setTarget(target);
     }
-
-    /**
-     * Returns whether a target element is document or not.
-     *
-     * @return {Boolean}
-     */
-
-  }, {
-    key: 'getOffset',
-
-
+    Object.defineProperty(ElementMeasurer.prototype, "isDocument", {
+        get: function () {
+            return this.target === document.documentElement
+                || this.target === document.body;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ElementMeasurer.prototype, "isDocumentTarget", {
+        // Deprecated.
+        get: function () {
+            return this.isDocument;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ElementMeasurer.prototype, "clientWidth", {
+        get: function () {
+            return this.isDocument
+                ? window.innerWidth
+                : this.target.getBoundingClientRect().width;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ElementMeasurer.prototype, "clientHeight", {
+        get: function () {
+            return this.isDocument
+                ? window.innerHeight
+                : this.target.getBoundingClientRect().height;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ElementMeasurer.prototype, "scrollTop", {
+        get: function () {
+            return this.isDocument ? window.pageYOffset : this.target.scrollTop;
+        },
+        set: function (val) {
+            if (this.isDocument) {
+                window.scrollTo(this.scrollLeft, val);
+            }
+            else {
+                this.target.scrollTop = val;
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ElementMeasurer.prototype, "scrollLeft", {
+        get: function () {
+            return this.isDocument ? window.pageXOffset : this.target.scrollLeft;
+        },
+        set: function (val) {
+            if (this.isDocument) {
+                window.scrollTo(val, this.scrollTop);
+            }
+            else {
+                this.target.scrollLeft = val;
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ElementMeasurer.prototype, "scrollWidth", {
+        get: function () {
+            return this.target.scrollWidth;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ElementMeasurer.prototype, "scrollHeight", {
+        get: function () {
+            return this.target.scrollHeight;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ElementMeasurer.prototype, "maxScrollTop", {
+        get: function () {
+            return this.scrollHeight - this.clientHeight;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(ElementMeasurer.prototype, "maxScrollLeft", {
+        get: function () {
+            return this.scrollWidth - this.clientWidth;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    ElementMeasurer.prototype.setTarget = function (val) {
+        if (val instanceof HTMLElement) {
+            this.target = val;
+        }
+        else if (val === window || val === document) {
+            this.target = document.documentElement;
+        }
+        else if (typeof val === 'string') {
+            this.target = document.querySelector(val);
+        }
+        else {
+            throw new TypeError('Target value is not correct type.');
+        }
+        return this;
+    };
     /**
      * Returns top and left values that indicates offset distance to html document.
      * @see https://stackoverflow.com/questions/442404/retrieve-the-position-x-y-of-an-html-element#answer-442474
-     *
-     * @return {Object}
      */
-    value: function getOffset() {
-      var elm = this.target;
-      var top = 0;
-      var left = 0;
+    ElementMeasurer.prototype.getOffset = function () {
+        var elm = this.target;
+        var top = 0;
+        var left = 0;
+        while (elm && !isNaN(elm.offsetLeft) && !isNaN(elm.offsetTop)) {
+            left += elm.offsetLeft - elm.scrollLeft;
+            top += elm.offsetTop - elm.scrollTop;
+            elm = elm.offsetParent;
+        }
+        return { top: top, left: left };
+    };
+    return ElementMeasurer;
+}());
+/* harmony default export */ __webpack_exports__["default"] = (ElementMeasurer);
 
-      while (elm && !isNaN(elm.offsetLeft) && !isNaN(elm.offsetTop)) {
-        left += elm.offsetLeft - elm.scrollLeft;
-        top += elm.offsetTop - elm.scrollTop;
-        elm = elm.offsetParent;
-      }
-
-      return { top: top, left: left };
-    }
-
-    // private
-
-  }, {
-    key: '_checkTarget',
-    value: function _checkTarget() {
-      this._isDocument = this.target === document.documentElement || this.target === document.body;
-    }
-  }, {
-    key: 'clientWidth',
-    get: function get() {
-      return this._isDocument ? window.innerWidth : this.target.getBoundingClientRect().width;
-    }
-
-    /**
-     * Returns inner height of an element in pixels.
-     *
-     * @return {Number}
-     */
-
-  }, {
-    key: 'clientHeight',
-    get: function get() {
-      return this._isDocument ? window.innerHeight : this.target.getBoundingClientRect().height;
-    }
-
-    /**
-     * Gets the number of pixels that an element's content is scrolled vertically.
-     *
-     * @return {Number}
-     */
-
-  }, {
-    key: 'scrollTop',
-    get: function get() {
-      return this._isDocument ? window.pageYOffset : this.target.scrollTop;
-    }
-
-    /**
-     * Sets scrolled vertically.
-     *
-     * @param  {Number} val
-     */
-    ,
-    set: function set(val) {
-      if (this._isDocument) {
-        window.scrollTo(this.scrollLeft, val);
-      } else {
-        this.target.scrollTop = val;
-      }
-    }
-
-    /**
-     * Gets the number of pixels that an element's content is scrolled to the left.
-     *
-     * @return {Number}
-     */
-
-  }, {
-    key: 'scrollLeft',
-    get: function get() {
-      return this._isDocument ? window.pageXOffset : this.target.scrollLeft;
-    }
-
-    /**
-     * Sets scrolled to the left.
-     *
-     * @param  {Number} val
-     */
-    ,
-    set: function set(val) {
-      if (this._isDocument) {
-        window.scrollTo(val, this.scrollTop);
-      } else {
-        this.target.scrollLeft = val;
-      }
-    }
-
-    /**
-     * Returns the width of the entire content of an element.
-     *
-     * @return {Number}
-     */
-
-  }, {
-    key: 'scrollWidth',
-    get: function get() {
-      return this.target.scrollWidth;
-    }
-
-    /**
-     * Returns the height of the entire content of an element.
-     *
-     * @return {Number}
-     */
-
-  }, {
-    key: 'scrollHeight',
-    get: function get() {
-      return this.target.scrollHeight;
-    }
-
-    /**
-     * Returns maximum top scroll offset possible for the element.
-     *
-     * @return {Number}
-     */
-
-  }, {
-    key: 'maxScrollTop',
-    get: function get() {
-      return this.scrollHeight - this.clientHeight;
-    }
-
-    /**
-     * Returns maximum left scroll offset possible for the element.
-     *
-     * @return {Number}
-     */
-
-  }, {
-    key: 'maxScrollLeft',
-    get: function get() {
-      return this.scrollWidth - this.clientWidth;
-    }
-  }, {
-    key: 'isDocumentTarget',
-    get: function get() {
-      this._checkTarget();
-      return this._isDocument;
-    }
-  }]);
-
-  return ElementMeasurer;
-}();
-
-exports.default = ElementMeasurer;
 
 /***/ })
 /******/ ]);
+});
 //# sourceMappingURL=element-measurer.js.map

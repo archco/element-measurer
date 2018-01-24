@@ -1,62 +1,45 @@
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const WebpackNotifierPlugin = require('webpack-notifier');
 
-const jsRule = {
-  test: /\.js$/,
-  exclude: /(node_modules|bower_components)/,
-  use: {
-    loader: 'babel-loader',
-    options: {
-      presets: ['env'],
-    },
+module.exports = {
+  entry: {
+    'element-measurer': './src/element-measurer.ts',
+    'element-measurer.min': './src/element-measurer.ts',
   },
-};
-
-const Library = {
-  entry: './lib/element-measurer.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'element-measurer.js',
-    library: 'ElementMeasurer',
-    libraryTarget: 'window',
-  },
-  module: {
-    rules: [
-      jsRule,
-    ],
-  },
-  devtool: 'source-map',
-};
-
-const Minify = {
-  entry: './lib/element-measurer.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'element-measurer.min.js',
-    library: 'ElementMeasurer',
-    libraryTarget: 'window',
-  },
-  module: {
-    rules: [
-      jsRule,
-    ],
-  },
-  plugins: [new UglifyJsPlugin()],
-};
-
-const Mod = {
-  entry: './lib/element-measurer.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'element-measurer.mod.js',
+    filename: '[name].js',
     library: 'ElementMeasurer',
     libraryTarget: 'umd',
   },
   module: {
     rules: [
-      jsRule,
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: 'awesome-typescript-loader',
+      },
+      {
+        test: /\.js$/,
+        use: 'source-map-loader',
+        enforce: 'pre',
+      },
     ],
   },
+  resolve: {
+    extensions: ['.js', '.ts'],
+  },
+  plugins: [
+    new UglifyJsPlugin({
+      sourceMap: false,
+      include: /\.min\.js$/,
+    }),
+    new WebpackNotifierPlugin({
+      title: 'Webpack',
+      alwaysNotify: true,
+      sound: false,
+    }),
+  ],
+  devtool: 'source-map',
 };
-
-module.exports = [Library, Minify, Mod];
