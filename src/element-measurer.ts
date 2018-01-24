@@ -17,7 +17,7 @@ export default class ElementMeasurer {
       || this.target === document.body;
   }
 
-  // Deprecated.
+  /** @deprecated use isDocument instead. */
   get isDocumentTarget(): boolean {
     return this.isDocument;
   }

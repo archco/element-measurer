@@ -93,7 +93,7 @@ var ElementMeasurer = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(ElementMeasurer.prototype, "isDocumentTarget", {
-        // Deprecated.
+        /** @deprecated use isDocument instead. */
         get: function () {
             return this.isDocument;
         },

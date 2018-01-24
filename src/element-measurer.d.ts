@@ -8,6 +8,9 @@ interface Offsets {
 export default class ElementMeasurer {
   target: HTMLElement;
 
+  /** @deprecated use isDocument instead. */
+  readonly isDocumentTarget: boolean;
+
   /** Returns whether target is document or html element. */
   readonly isDocument: boolean;
 
