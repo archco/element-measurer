@@ -25,7 +25,7 @@ docSize.scrollTop = 200; // set scrollTop.
 
 ## API
 
-![Image: element-and-client](https://github.com/archco/element-measurer/blob/master/element-and-client.png)
+![Image: element-and-client](https://raw.githubusercontent.com/archco/element-measurer/master/element-and-client.png)
 
 ### Properties
 
