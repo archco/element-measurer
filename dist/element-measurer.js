@@ -80,11 +80,19 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 var ElementMeasurer = /** @class */ (function () {
+    /**
+     * constructor
+     * @param target
+     */
     function ElementMeasurer(target) {
         if (target === void 0) { target = document.documentElement; }
         this.setTarget(target);
     }
     Object.defineProperty(ElementMeasurer.prototype, "isDocument", {
+        /**
+         * Returns whether target is document or html element.
+         * @return
+         */
         get: function () {
             return this.target === document.documentElement
                 || this.target === document.body;
@@ -93,7 +101,11 @@ var ElementMeasurer = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(ElementMeasurer.prototype, "isDocumentTarget", {
-        /** @deprecated use isDocument instead. */
+        /**
+         * Returns whether target is document or html element.
+         * @deprecated use isDocument instead.
+         * @return
+         */
         get: function () {
             return this.isDocument;
         },
@@ -101,6 +113,10 @@ var ElementMeasurer = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(ElementMeasurer.prototype, "clientWidth", {
+        /**
+         * Returns inner width of an element in pixels.
+         * @return
+         */
         get: function () {
             return this.isDocument
                 ? window.innerWidth
@@ -110,6 +126,10 @@ var ElementMeasurer = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(ElementMeasurer.prototype, "clientHeight", {
+        /**
+         * Returns inner height of an element in pixels.
+         * @return
+         */
         get: function () {
             return this.isDocument
                 ? window.innerHeight
@@ -119,6 +139,10 @@ var ElementMeasurer = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(ElementMeasurer.prototype, "scrollTop", {
+        /**
+         * Gets or sets the number of pixels that an element's content is scrolled vertically.
+         * @return
+         */
         get: function () {
             return this.isDocument ? window.pageYOffset : this.target.scrollTop;
         },
@@ -134,6 +158,10 @@ var ElementMeasurer = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(ElementMeasurer.prototype, "scrollLeft", {
+        /**
+         * Gets or sets the number of pixels that an element's content is scrolled to the left.
+         * @return
+         */
         get: function () {
             return this.isDocument ? window.pageXOffset : this.target.scrollLeft;
         },
@@ -149,6 +177,10 @@ var ElementMeasurer = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(ElementMeasurer.prototype, "scrollWidth", {
+        /**
+         * Returns the width of the entire content of an element.
+         * @return
+         */
         get: function () {
             return this.target.scrollWidth;
         },
@@ -156,6 +188,10 @@ var ElementMeasurer = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(ElementMeasurer.prototype, "scrollHeight", {
+        /**
+         * Returns the height of the entire content of an element.
+         * @return
+         */
         get: function () {
             return this.target.scrollHeight;
         },
@@ -163,6 +199,10 @@ var ElementMeasurer = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(ElementMeasurer.prototype, "maxScrollTop", {
+        /**
+         * Returns maximum top scroll offset possible for the element.
+         * @return
+         */
         get: function () {
             return this.scrollHeight - this.clientHeight;
         },
@@ -170,12 +210,21 @@ var ElementMeasurer = /** @class */ (function () {
         configurable: true
     });
     Object.defineProperty(ElementMeasurer.prototype, "maxScrollLeft", {
+        /**
+         * Returns maximum left scroll offset possible for the element.
+         * @return
+         */
         get: function () {
             return this.scrollWidth - this.clientWidth;
         },
         enumerable: true,
         configurable: true
     });
+    /**
+     * Set target element.
+     * @param  val
+     * @return
+     */
     ElementMeasurer.prototype.setTarget = function (val) {
         if (val instanceof HTMLElement) {
             this.target = val;

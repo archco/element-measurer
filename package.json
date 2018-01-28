@@ -1,6 +1,6 @@
 {
   "name": "element-measurer",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "The javascript library class for measures size of Element.",
   "main": "dist/element-measurer.js",
   "types": "src/element-measurer.ts",
