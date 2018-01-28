@@ -8,32 +8,56 @@ interface Offsets {
 export default class ElementMeasurer {
   target: HTMLElement;
 
+  /**
+   * constructor
+   * @param target
+   */
   constructor(target: ArrowToTarget = document.documentElement) {
     this.setTarget(target);
   }
 
+  /**
+   * Returns whether target is document or html element.
+   * @return
+   */
   get isDocument(): boolean {
     return this.target === document.documentElement
       || this.target === document.body;
   }
 
-  /** @deprecated use isDocument instead. */
+  /**
+   * Returns whether target is document or html element.
+   * @deprecated use isDocument instead.
+   * @return
+   */
   get isDocumentTarget(): boolean {
     return this.isDocument;
   }
 
+  /**
+   * Returns inner width of an element in pixels.
+   * @return
+   */
   get clientWidth(): number {
     return this.isDocument
       ? window.innerWidth
       : this.target.getBoundingClientRect().width;
   }
 
+  /**
+   * Returns inner height of an element in pixels.
+   * @return
+   */
   get clientHeight(): number {
     return this.isDocument
       ? window.innerHeight
       : this.target.getBoundingClientRect().height;
   }
 
+  /**
+   * Gets or sets the number of pixels that an element's content is scrolled vertically.
+   * @return
+   */
   get scrollTop(): number {
     return this.isDocument ? window.pageYOffset : this.target.scrollTop;
   }
@@ -46,6 +70,10 @@ export default class ElementMeasurer {
     }
   }
 
+  /**
+   * Gets or sets the number of pixels that an element's content is scrolled to the left.
+   * @return
+   */
   get scrollLeft(): number {
     return this.isDocument ? window.pageXOffset : this.target.scrollLeft;
   }
@@ -58,22 +86,43 @@ export default class ElementMeasurer {
     }
   }
 
+  /**
+   * Returns the width of the entire content of an element.
+   * @return
+   */
   get scrollWidth(): number {
     return this.target.scrollWidth;
   }
 
+  /**
+   * Returns the height of the entire content of an element.
+   * @return
+   */
   get scrollHeight(): number {
     return this.target.scrollHeight;
   }
 
+  /**
+   * Returns maximum top scroll offset possible for the element.
+   * @return
+   */
   get maxScrollTop(): number {
     return this.scrollHeight - this.clientHeight;
   }
 
+  /**
+   * Returns maximum left scroll offset possible for the element.
+   * @return
+   */
   get maxScrollLeft(): number {
     return this.scrollWidth - this.clientWidth;
   }
 
+  /**
+   * Set target element.
+   * @param  val
+   * @return
+   */
   setTarget(val: ArrowToTarget): this {
     if (val instanceof HTMLElement) {
       this.target = val;

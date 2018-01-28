@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "description": "The javascript library class for measures size of Element.",
   "main": "dist/element-measurer.js",
-  "types": "src/element-measurer.d.ts",
+  "types": "src/element-measurer.ts",
   "directories": {
     "test": "test"
   },
