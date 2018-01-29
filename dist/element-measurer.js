@@ -79,6 +79,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/**
+ * Element measurer.
+ *
+ * @export
+ * @class ElementMeasurer
+ */
 var ElementMeasurer = /** @class */ (function () {
     /**
      * constructor

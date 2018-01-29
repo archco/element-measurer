@@ -5,6 +5,12 @@ interface Offsets {
   left: number;
 }
 
+/**
+ * Element measurer.
+ *
+ * @export
+ * @class ElementMeasurer
+ */
 export default class ElementMeasurer {
   target: HTMLElement;
 
