@@ -232,10 +232,7 @@ var ElementMeasurer = /** @class */ (function () {
      * @return
      */
     ElementMeasurer.prototype.setTarget = function (val) {
-        if (val instanceof HTMLElement) {
-            this.target = val;
-        }
-        else if (val instanceof Element) {
+        if (val instanceof HTMLElement || val instanceof Element) {
             this.target = val;
         }
         else if (val === window || val === document) {

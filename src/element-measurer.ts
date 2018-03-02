@@ -130,9 +130,7 @@ export default class ElementMeasurer {
    * @return
    */
   setTarget(val: ArrowToTarget): this {
-    if (val instanceof HTMLElement) {
-      this.target = val;
-    } else if (val instanceof Element) {
+    if (val instanceof HTMLElement || val instanceof Element) {
       this.target = val as HTMLElement;
     } else if (val === window || val === document) {
       this.target = document.documentElement;
