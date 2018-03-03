@@ -1,6 +1,6 @@
 {
   "name": "element-measurer",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "The javascript library class for measures size of Element.",
   "main": "dist/element-measurer.js",
   "types": "src/element-measurer.d.ts",
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "echo \"Please see test/test.html in browser.\" && exit 1",
-    "build": "npx webpack --hide-modules",
+    "build": "webpack --hide-modules --mode=\"development\"",
     "watch": "npm run build -- --watch"
   },
   "repository": {
@@ -27,13 +27,14 @@
   },
   "homepage": "https://github.com/archco/element-measurer#readme",
   "devDependencies": {
-    "awesome-typescript-loader": "^3.4.1",
     "chai": "^4.1.2",
-    "mocha": "^4.0.1",
+    "mocha": "^5.0.1",
     "source-map-loader": "^0.2.3",
-    "typescript": "^2.6.2",
-    "uglifyjs-webpack-plugin": "^1.1.6",
-    "webpack": "^3.10.0",
+    "ts-loader": "^4.0.1",
+    "typescript": "^2.7.2",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.10",
+    "webpack-merge": "^4.1.2",
     "webpack-notifier": "^1.5.1"
   }
 }
