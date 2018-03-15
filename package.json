@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "echo \"Please see test/test.html in browser.\" && exit 1",
-    "build": "webpack --hide-modules --mode=\"development\"",
+    "build": "webpack --hide-modules",
     "watch": "npm run build -- --watch"
   },
   "repository": {
@@ -28,13 +28,13 @@
   "homepage": "https://github.com/archco/element-measurer#readme",
   "devDependencies": {
     "chai": "^4.1.2",
-    "mocha": "^5.0.1",
+    "mocha": "^5.0.4",
     "source-map-loader": "^0.2.3",
     "ts-loader": "^4.0.1",
     "typescript": "^2.7.2",
-    "webpack": "^4.0.1",
-    "webpack-cli": "^2.0.10",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12",
     "webpack-merge": "^4.1.2",
-    "webpack-notifier": "^1.5.1"
+    "webpack-notifier": "^1.6.0"
   }
 }
