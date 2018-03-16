@@ -1,5 +1,9 @@
 # ElementMeasurer
 
+[![Build Status](https://travis-ci.org/archco/element-measurer.svg?branch=master)](https://travis-ci.org/archco/element-measurer)
+[![npm version](https://badge.fury.io/js/element-measurer.svg)](https://www.npmjs.com/package/element-measurer)
+[![Downloads](https://img.shields.io/npm/dm/element-measurer.svg)](https://www.npmjs.com/package/element-measurer)
+
 The javascript library class for measures size of Element.
 
 ## Install

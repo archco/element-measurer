@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.3.0] - 2018-03-16
+
 ### Changed
 
 - Changed tests for the continuous integration (#5).
@@ -14,7 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Removed
 
-- Removed getter `.isDocumentTarget`. use `.isDocument` instead.
+- Removed getter `.isDocumentTarget`. use `.isDocument` instead. (b1d4c76e73a92058fdc0f59efc8db296346d1da2)
 
 ## [1.2.0] - 2018-01-24
 
@@ -42,7 +44,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 First release. [README.md](https://github.com/archco/element-measurer/blob/master/README.md)
 
-[Unreleased]: https://github.com/archco/element-measurer/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/archco/element-measurer/compare/v1.3.0...HEAD
+[1.3.0]: https://github.com/archco/element-measurer/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/archco/element-measurer/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/archco/element-measurer/compare/v1.0.2...v1.1.0
 [1.0.2]: https://github.com/archco/element-measurer/compare/v1.0.0...v1.0.2
