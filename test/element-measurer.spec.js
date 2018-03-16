@@ -14,7 +14,11 @@ let page;
 
 before(async function () {
   this.timeout(10000);
-  browser = await puppeteer.launch();
+  /**
+   * Chrome headless fails due to sandbox in Linux (Ubuntu)
+   * https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md#chrome-headless-fails-due-to-sandbox-issues
+   */
+  browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
   page = await browser.newPage();
   await page.goto(`file:///${path.resolve(__dirname, 'index.html')}`);
 });
