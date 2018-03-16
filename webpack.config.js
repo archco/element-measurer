@@ -10,6 +10,7 @@ const dev = {
     filename: 'element-measurer.js',
     library: 'ElementMeasurer',
     libraryTarget: 'umd',
+    globalObject: 'this',
   },
   module: {
     rules: [

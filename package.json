@@ -8,7 +8,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Please see test/test.html in browser.\" && exit 1",
+    "test": "mocha \"./test/*.spec.js\"",
     "build": "webpack --hide-modules",
     "watch": "npm run build -- --watch"
   },
@@ -27,8 +27,14 @@
   },
   "homepage": "https://github.com/archco/element-measurer#readme",
   "devDependencies": {
+    "@types/chai": "^4.1.2",
+    "@types/chai-as-promised": "^7.1.0",
+    "@types/mocha": "^2.2.48",
+    "@types/puppeteer": "^1.1.0",
     "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
     "mocha": "^5.0.4",
+    "puppeteer": "^1.1.1",
     "source-map-loader": "^0.2.3",
     "ts-loader": "^4.0.1",
     "typescript": "^2.7.2",

@@ -1,5 +1,3 @@
-export default ElementMeasurer;
-
 declare type ArrowToTarget = HTMLElement|Element|Window|Document|string;
 
 declare interface Offsets {
@@ -13,7 +11,7 @@ declare interface Offsets {
  * @export
  * @class ElementMeasurer
  */
-declare class ElementMeasurer {
+export default class ElementMeasurer {
   target: HTMLElement;
 
   /** Returns whether target is document or html element. */
