@@ -4,11 +4,13 @@ const WebpackNotifierPlugin = require('webpack-notifier');
 
 const dev = {
   entry: './src/element-measurer.ts',
+  mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'element-measurer.js',
     library: 'ElementMeasurer',
     libraryTarget: 'umd',
+    globalObject: 'this',
   },
   module: {
     rules: [

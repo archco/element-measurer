@@ -28,8 +28,8 @@ describe('ElementMeasurer', function () {
     });
 
     it('If given value is window, then target as document.documentElement.', function () {
-      var measuerer = new ElementMeasurer(window);
-      expect(measuerer.target).to.equal(document.documentElement);
+      var measurer = new ElementMeasurer(window);
+      expect(measurer.target).to.equal(document.documentElement);
     });
   });
 

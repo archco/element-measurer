@@ -45,9 +45,11 @@ docSize.scrollTop = 200; // set scrollTop.
 Set target element.
 
 - Syntax
+
   ``` js
   elementMeasurer.setTarget(target);
   ```
+
 - Param `Element|String|Window|Document` target
 - Return `ElementMeasurer`
 
@@ -56,9 +58,11 @@ Set target element.
 Returns top and left values that indicates offset distance to html document.
 
 - Syntax
+
   ``` js
   let obj = elementMeasurer.getOffset();
   ```
+
 - Return `Object` { top, left }
 
 ## License
