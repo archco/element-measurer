@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- Changed tests for the continuous integration (#5).
+  The browser tests is only for the checking compatibility.
+
+### Removed
+
+- Removed getter `.isDocumentTarget`. use `.isDocument` instead.
+
 ## [1.2.0] - 2018-01-24
 
 ### Changed

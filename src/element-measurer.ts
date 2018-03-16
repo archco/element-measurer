@@ -32,15 +32,6 @@ export default class ElementMeasurer {
   }
 
   /**
-   * Returns whether target is document or html element.
-   * @deprecated use isDocument instead.
-   * @return
-   */
-  get isDocumentTarget(): boolean {
-    return this.isDocument;
-  }
-
-  /**
    * Returns inner width of an element in pixels.
    * @return
    */

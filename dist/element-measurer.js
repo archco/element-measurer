@@ -117,18 +117,6 @@ var ElementMeasurer = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(ElementMeasurer.prototype, "isDocumentTarget", {
-        /**
-         * Returns whether target is document or html element.
-         * @deprecated use isDocument instead.
-         * @return
-         */
-        get: function () {
-            return this.isDocument;
-        },
-        enumerable: true,
-        configurable: true
-    });
     Object.defineProperty(ElementMeasurer.prototype, "clientWidth", {
         /**
          * Returns inner width of an element in pixels.

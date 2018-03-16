@@ -16,8 +16,6 @@ export default class ElementMeasurer {
 
   /** Returns whether target is document or html element. */
   readonly isDocument: boolean;
-  /** @deprecated use isDocument instead. */
-  readonly isDocumentTarget: boolean;
   /** Returns inner width of an element in pixels. */
   readonly clientWidth: number;
   /** Returns inner height of an element in pixels. */
