@@ -85,21 +85,23 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!*********************************!*\
   !*** ./src/element-measurer.ts ***!
   \*********************************/
-/*! exports provided: default */
+/*! exports provided: ElementMeasurer, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ElementMeasurer", function() { return ElementMeasurer; });
 /**
- * Element measurer.
+ * The library class that can measures size of element.
  *
  * @export
  * @class ElementMeasurer
  */
 var ElementMeasurer = /** @class */ (function () {
     /**
-     * constructor
-     * @param target
+     * Creates an instance of ElementMeasurer.
+     * @param {AllowedTarget} [target=document.documentElement]
+     * @memberof ElementMeasurer
      */
     function ElementMeasurer(target) {
         if (target === void 0) { target = document.documentElement; }
@@ -108,7 +110,10 @@ var ElementMeasurer = /** @class */ (function () {
     Object.defineProperty(ElementMeasurer.prototype, "isDocument", {
         /**
          * Returns whether target is document or html element.
-         * @return
+         *
+         * @readonly
+         * @type {boolean}
+         * @memberof ElementMeasurer
          */
         get: function () {
             return this.target === document.documentElement
@@ -120,7 +125,10 @@ var ElementMeasurer = /** @class */ (function () {
     Object.defineProperty(ElementMeasurer.prototype, "clientWidth", {
         /**
          * Returns inner width of an element in pixels.
-         * @return
+         *
+         * @readonly
+         * @type {number}
+         * @memberof ElementMeasurer
          */
         get: function () {
             return this.isDocument
@@ -133,7 +141,10 @@ var ElementMeasurer = /** @class */ (function () {
     Object.defineProperty(ElementMeasurer.prototype, "clientHeight", {
         /**
          * Returns inner height of an element in pixels.
-         * @return
+         *
+         * @readonly
+         * @type {number}
+         * @memberof ElementMeasurer
          */
         get: function () {
             return this.isDocument
@@ -146,7 +157,9 @@ var ElementMeasurer = /** @class */ (function () {
     Object.defineProperty(ElementMeasurer.prototype, "scrollTop", {
         /**
          * Gets or sets the number of pixels that an element's content is scrolled vertically.
-         * @return
+         *
+         * @type {number}
+         * @memberof ElementMeasurer
          */
         get: function () {
             return this.isDocument ? window.pageYOffset : this.target.scrollTop;
@@ -165,7 +178,9 @@ var ElementMeasurer = /** @class */ (function () {
     Object.defineProperty(ElementMeasurer.prototype, "scrollLeft", {
         /**
          * Gets or sets the number of pixels that an element's content is scrolled to the left.
-         * @return
+         *
+         * @type {number}
+         * @memberof ElementMeasurer
          */
         get: function () {
             return this.isDocument ? window.pageXOffset : this.target.scrollLeft;
@@ -184,7 +199,10 @@ var ElementMeasurer = /** @class */ (function () {
     Object.defineProperty(ElementMeasurer.prototype, "scrollWidth", {
         /**
          * Returns the width of the entire content of an element.
-         * @return
+         *
+         * @readonly
+         * @type {number}
+         * @memberof ElementMeasurer
          */
         get: function () {
             return this.target.scrollWidth;
@@ -195,7 +213,10 @@ var ElementMeasurer = /** @class */ (function () {
     Object.defineProperty(ElementMeasurer.prototype, "scrollHeight", {
         /**
          * Returns the height of the entire content of an element.
-         * @return
+         *
+         * @readonly
+         * @type {number}
+         * @memberof ElementMeasurer
          */
         get: function () {
             return this.target.scrollHeight;
@@ -206,7 +227,10 @@ var ElementMeasurer = /** @class */ (function () {
     Object.defineProperty(ElementMeasurer.prototype, "maxScrollTop", {
         /**
          * Returns maximum top scroll offset possible for the element.
-         * @return
+         *
+         * @readonly
+         * @type {number}
+         * @memberof ElementMeasurer
          */
         get: function () {
             return this.scrollHeight - this.clientHeight;
@@ -217,7 +241,10 @@ var ElementMeasurer = /** @class */ (function () {
     Object.defineProperty(ElementMeasurer.prototype, "maxScrollLeft", {
         /**
          * Returns maximum left scroll offset possible for the element.
-         * @return
+         *
+         * @readonly
+         * @type {number}
+         * @memberof ElementMeasurer
          */
         get: function () {
             return this.scrollWidth - this.clientWidth;
@@ -227,8 +254,10 @@ var ElementMeasurer = /** @class */ (function () {
     });
     /**
      * Set target element.
-     * @param  val
-     * @return
+     *
+     * @param {AllowedTarget} val target element.
+     * @returns {this}
+     * @memberof ElementMeasurer
      */
     ElementMeasurer.prototype.setTarget = function (val) {
         if (val instanceof HTMLElement || val instanceof Element) {
@@ -248,6 +277,8 @@ var ElementMeasurer = /** @class */ (function () {
     /**
      * Returns top and left values that indicates offset distance to html document.
      * @see https://stackoverflow.com/questions/442404/retrieve-the-position-x-y-of-an-html-element#answer-442474
+     * @returns {Offsets} {top, left}
+     * @memberof ElementMeasurer
      */
     ElementMeasurer.prototype.getOffset = function () {
         var elm = this.target;
@@ -262,6 +293,7 @@ var ElementMeasurer = /** @class */ (function () {
     };
     return ElementMeasurer;
 }());
+
 /* harmony default export */ __webpack_exports__["default"] = (ElementMeasurer);
 
 
