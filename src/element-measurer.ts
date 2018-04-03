@@ -1,30 +1,40 @@
-type ArrowToTarget = HTMLElement|Element|Window|Document|string;
+export type AllowedTarget = HTMLElement|Element|Window|Document|string;
 
-interface Offsets {
+/**
+ * Expressions top and left offset values.
+ *
+ * @export
+ * @interface Offsets
+ */
+export interface Offsets {
   top: number;
   left: number;
 }
 
 /**
- * Element measurer.
+ * The library class that can measures size of element.
  *
  * @export
  * @class ElementMeasurer
  */
-export default class ElementMeasurer {
+export class ElementMeasurer {
   target: HTMLElement;
 
   /**
-   * constructor
-   * @param target
+   * Creates an instance of ElementMeasurer.
+   * @param {AllowedTarget} [target=document.documentElement]
+   * @memberof ElementMeasurer
    */
-  constructor(target: ArrowToTarget = document.documentElement) {
+  constructor(target: AllowedTarget = document.documentElement) {
     this.setTarget(target);
   }
 
   /**
    * Returns whether target is document or html element.
-   * @return
+   *
+   * @readonly
+   * @type {boolean}
+   * @memberof ElementMeasurer
    */
   get isDocument(): boolean {
     return this.target === document.documentElement
@@ -33,7 +43,10 @@ export default class ElementMeasurer {
 
   /**
    * Returns inner width of an element in pixels.
-   * @return
+   *
+   * @readonly
+   * @type {number}
+   * @memberof ElementMeasurer
    */
   get clientWidth(): number {
     return this.isDocument
@@ -43,7 +56,10 @@ export default class ElementMeasurer {
 
   /**
    * Returns inner height of an element in pixels.
-   * @return
+   *
+   * @readonly
+   * @type {number}
+   * @memberof ElementMeasurer
    */
   get clientHeight(): number {
     return this.isDocument
@@ -53,7 +69,9 @@ export default class ElementMeasurer {
 
   /**
    * Gets or sets the number of pixels that an element's content is scrolled vertically.
-   * @return
+   *
+   * @type {number}
+   * @memberof ElementMeasurer
    */
   get scrollTop(): number {
     return this.isDocument ? window.pageYOffset : this.target.scrollTop;
@@ -69,7 +87,9 @@ export default class ElementMeasurer {
 
   /**
    * Gets or sets the number of pixels that an element's content is scrolled to the left.
-   * @return
+   *
+   * @type {number}
+   * @memberof ElementMeasurer
    */
   get scrollLeft(): number {
     return this.isDocument ? window.pageXOffset : this.target.scrollLeft;
@@ -85,7 +105,10 @@ export default class ElementMeasurer {
 
   /**
    * Returns the width of the entire content of an element.
-   * @return
+   *
+   * @readonly
+   * @type {number}
+   * @memberof ElementMeasurer
    */
   get scrollWidth(): number {
     return this.target.scrollWidth;
@@ -93,7 +116,10 @@ export default class ElementMeasurer {
 
   /**
    * Returns the height of the entire content of an element.
-   * @return
+   *
+   * @readonly
+   * @type {number}
+   * @memberof ElementMeasurer
    */
   get scrollHeight(): number {
     return this.target.scrollHeight;
@@ -101,7 +127,10 @@ export default class ElementMeasurer {
 
   /**
    * Returns maximum top scroll offset possible for the element.
-   * @return
+   *
+   * @readonly
+   * @type {number}
+   * @memberof ElementMeasurer
    */
   get maxScrollTop(): number {
     return this.scrollHeight - this.clientHeight;
@@ -109,7 +138,10 @@ export default class ElementMeasurer {
 
   /**
    * Returns maximum left scroll offset possible for the element.
-   * @return
+   *
+   * @readonly
+   * @type {number}
+   * @memberof ElementMeasurer
    */
   get maxScrollLeft(): number {
     return this.scrollWidth - this.clientWidth;
@@ -117,10 +149,12 @@ export default class ElementMeasurer {
 
   /**
    * Set target element.
-   * @param  val
-   * @return
+   *
+   * @param {AllowedTarget} val target element.
+   * @returns {this}
+   * @memberof ElementMeasurer
    */
-  setTarget(val: ArrowToTarget): this {
+  setTarget(val: AllowedTarget): this {
     if (val instanceof HTMLElement || val instanceof Element) {
       this.target = val as HTMLElement;
     } else if (val === window || val === document) {
@@ -136,6 +170,8 @@ export default class ElementMeasurer {
   /**
    * Returns top and left values that indicates offset distance to html document.
    * @see https://stackoverflow.com/questions/442404/retrieve-the-position-x-y-of-an-html-element#answer-442474
+   * @returns {Offsets} {top, left}
+   * @memberof ElementMeasurer
    */
   getOffset(): Offsets {
     let elm = this.target;
@@ -151,3 +187,5 @@ export default class ElementMeasurer {
     return { top, left };
   }
 }
+
+export default ElementMeasurer;

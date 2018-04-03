@@ -1,17 +1,25 @@
-declare type ArrowToTarget = HTMLElement|Element|Window|Document|string;
+export as namespace ElementMeasurer;
 
-declare interface Offsets {
+export type AllowedTarget = HTMLElement|Element|Window|Document|string;
+
+/**
+ * Expressions top and left offset values.
+ *
+ * @export
+ * @interface Offsets
+ */
+export interface Offsets {
   top: number;
   left: number;
 }
 
 /**
- * Element measurer.
+ * The library class that can measures size of element.
  *
  * @export
  * @class ElementMeasurer
  */
-export default class ElementMeasurer {
+export class ElementMeasurer {
   target: HTMLElement;
 
   /** Returns whether target is document or html element. */
@@ -34,21 +42,28 @@ export default class ElementMeasurer {
   readonly maxScrollLeft: number;
 
   /**
-   * constructor
-   * @param target
+   * Creates an instance of ElementMeasurer.
+   * @param {AllowedTarget} [target=document.documentElement]
+   * @memberof ElementMeasurer
    */
-  constructor(target?: ArrowToTarget);
+  constructor(target?: AllowedTarget);
 
   /**
    * Set target element.
-   * @param  val
-   * @return
+   *
+   * @param {AllowedTarget} val target element.
+   * @returns {this}
+   * @memberof ElementMeasurer
    */
-  setTarget(val: ArrowToTarget): this;
+  setTarget(val: AllowedTarget): this;
 
   /**
    * Returns top and left values that indicates offset distance to html document.
    * @see https://stackoverflow.com/questions/442404/retrieve-the-position-x-y-of-an-html-element#answer-442474
+   * @returns {Offsets} {top, left}
+   * @memberof ElementMeasurer
    */
   getOffset(): Offsets;
 }
+
+export default ElementMeasurer;
