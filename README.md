@@ -55,7 +55,7 @@ Set target element.
   ```
 
 - Param `Element|String|Window|Document` target
-- Return `ElementMeasurer`
+- Returns `ElementMeasurer`
 
 #### getOffset
 
@@ -67,7 +67,19 @@ Returns top and left values that indicates offset distance to html document.
   let obj = elementMeasurer.getOffset();
   ```
 
-- Return `Object` { top, left }
+- Returns `Object` { top, left }
+
+#### getRect
+
+Returns DOMRect object of the target element.
+
+- Syntax
+
+  ``` js
+  let domRect = elementMeasurer.getRect();
+  ```
+
+- Returns [`DOMRect`](https://developer.mozilla.org/en-US/docs/Web/API/DOMRect#Properties)
 
 ## License
 

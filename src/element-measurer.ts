@@ -188,7 +188,7 @@ export class ElementMeasurer {
   }
 
   /**
-   * Returns DOMRect object of target element.
+   * Returns DOMRect object of the target element.
    * @see https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
    * @returns {DOMRect}
    * @memberof ElementMeasurer
