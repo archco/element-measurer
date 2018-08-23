@@ -185,4 +185,14 @@ describe('#ElementMeasurer', () => {
       expect(offset.hasOwnProperty('left')).to.be.true;
     });
   });
+
+  describe('#getRect', () => {
+    it('returns a DOMRect object of target element', async () => {
+      const instanceOfDomRect = await page.evaluate(() => {
+        const targetRect = new ElementMeasurer('#target').getRect();
+        return targetRect instanceof DOMRect;
+      });
+      expect(instanceOfDomRect).to.be.true;
+    });
+  });
 });

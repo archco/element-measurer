@@ -186,6 +186,16 @@ export class ElementMeasurer {
 
     return { top, left };
   }
+
+  /**
+   * Returns DOMRect object of target element.
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
+   * @returns {DOMRect}
+   * @memberof ElementMeasurer
+   */
+  getRect(): DOMRect {
+    return this.target.getBoundingClientRect() as DOMRect;
+  }
 }
 
 export default ElementMeasurer;
