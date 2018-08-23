@@ -51,7 +51,7 @@ export class ElementMeasurer {
   get clientWidth(): number {
     return this.isDocument
       ? window.innerWidth
-      : this.target.getBoundingClientRect().width;
+      : this.getRect().width;
   }
 
   /**
@@ -64,7 +64,7 @@ export class ElementMeasurer {
   get clientHeight(): number {
     return this.isDocument
       ? window.innerHeight
-      : this.target.getBoundingClientRect().height;
+      : this.getRect().height;
   }
 
   /**

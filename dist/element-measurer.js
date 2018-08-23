@@ -148,7 +148,7 @@ var ElementMeasurer = /** @class */ (function () {
         get: function () {
             return this.isDocument
                 ? window.innerWidth
-                : this.target.getBoundingClientRect().width;
+                : this.getRect().width;
         },
         enumerable: true,
         configurable: true
@@ -164,7 +164,7 @@ var ElementMeasurer = /** @class */ (function () {
         get: function () {
             return this.isDocument
                 ? window.innerHeight
-                : this.target.getBoundingClientRect().height;
+                : this.getRect().height;
         },
         enumerable: true,
         configurable: true
@@ -305,6 +305,15 @@ var ElementMeasurer = /** @class */ (function () {
             elm = elm.offsetParent;
         }
         return { top: top, left: left };
+    };
+    /**
+     * Returns DOMRect object of the target element.
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
+     * @returns {DOMRect}
+     * @memberof ElementMeasurer
+     */
+    ElementMeasurer.prototype.getRect = function () {
+        return this.target.getBoundingClientRect();
     };
     return ElementMeasurer;
 }());
