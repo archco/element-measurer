@@ -12,6 +12,8 @@ let browser;
 /** @type {puppeteer.Page} page */
 let page;
 
+/** @typedef {import('../src/element-measurer').default} ElementMeasurer */
+
 before(async function () {
   this.timeout(10000);
   /**
@@ -57,6 +59,7 @@ describe('#ElementMeasurer', () => {
   describe('#constructor', () => {
     it('set target to document.', async () => {
       const res = await page.evaluate(() => {
+        const ElementMeasurer = window.ElementMeasurer.default;
         return new ElementMeasurer().isDocument;
       });
       expect(res).to.be.true;
@@ -64,6 +67,7 @@ describe('#ElementMeasurer', () => {
 
     it('set target to element.', async () => {
       const res = await page.evaluate(() => {
+        const ElementMeasurer = window.ElementMeasurer.default;
         return new ElementMeasurer('#target').isDocument;
       });
       expect(res).to.be.false;
@@ -71,19 +75,22 @@ describe('#ElementMeasurer', () => {
 
     it('set target to window.', async () => {
       const res = await page.evaluate(() => {
+        const ElementMeasurer = window.ElementMeasurer.default;
         return new ElementMeasurer(window).isDocument;
       });
       expect(res).to.be.true;
     });
 
     it('error occurs when give wrong argument type.', function () {
-      expect(page.evaluate(() => new ElementMeasurer({}))).to.be.rejected;
+      expect(page.evaluate(() => new window.ElementMeasurer.default({}))).to.be.rejected;
     });
   });
 
   describe('clientWidth and clientHeight', () => {
     it('document clientWidth is equal to window.innerWidth', async () => {
       const [doc, win] = await page.evaluate(() => {
+        const ElementMeasurer = window.ElementMeasurer.default;
+        /** @type {ElementMeasurer} */
         const docSize = new ElementMeasurer();
         return [
           { width: docSize.clientWidth, height: docSize.clientHeight },
@@ -96,6 +103,8 @@ describe('#ElementMeasurer', () => {
 
     it('element clientHeight is equal Element.clientHeight.', async () => {
       const [size, elm] = await page.evaluate(() => {
+        const ElementMeasurer = window.ElementMeasurer.default;
+        /** @type {ElementMeasurer} */
         const size = new ElementMeasurer('#target');
         const elm = document.querySelector('#target');
         return [
@@ -111,6 +120,8 @@ describe('#ElementMeasurer', () => {
   describe('scrollWidth and scrollHeight', () => {
     it("scrollWidth is equal to Element.scrollHeight.", async () => {
       const [size, elm] = await page.evaluate(() => {
+        const ElementMeasurer = window.ElementMeasurer.default;
+        /** @type {ElementMeasurer} */
         const elmSize = new ElementMeasurer('#target');
         const elm = document.querySelector('#target');
         return [
@@ -126,6 +137,8 @@ describe('#ElementMeasurer', () => {
   describe('scrollTop and scrollLeft', () => {
     it("document's scrollTop is equal to window.pageYOffset.", async () => {
       const [doc, win] = await page.evaluate(() => {
+        const ElementMeasurer = window.ElementMeasurer.default;
+        /** @type {ElementMeasurer} */
         const docSize = new ElementMeasurer();
         return [
           { top: docSize.scrollTop, left: docSize.scrollLeft },
@@ -138,6 +151,8 @@ describe('#ElementMeasurer', () => {
 
     it("element's scrollLeft is equal to Element.scrollLeft.", async () => {
       const [size, elm] = await page.evaluate(() => {
+        const ElementMeasurer = window.ElementMeasurer.default;
+        /** @type {ElementMeasurer} */
         const elmSize = new ElementMeasurer('#target');
         const elm = document.querySelector('#target');
         return [
@@ -151,6 +166,8 @@ describe('#ElementMeasurer', () => {
 
     it('can set scrollTop or scrollLeft.', async () => {
       const pageYOffset = await page.evaluate(() => {
+        const ElementMeasurer = window.ElementMeasurer.default;
+        /** @type {ElementMeasurer} */
         const docSize = new ElementMeasurer();
         docSize.scrollTop = 400;
         return window.pageYOffset;
@@ -162,6 +179,8 @@ describe('#ElementMeasurer', () => {
   describe('maxScrollTop and maxScrollLeft', () => {
     it('maxScrollTop = scrollHeight - clientHeight', async () => {
       const [val1, val2] = await page.evaluate(() => {
+        const ElementMeasurer = window.ElementMeasurer.default;
+        /** @type {ElementMeasurer} */
         const docSize = new ElementMeasurer();
         return [
           { top: docSize.maxScrollTop, left: docSize.maxScrollLeft },
@@ -179,16 +198,18 @@ describe('#ElementMeasurer', () => {
   describe('#getOffset', () => {
     it('returns to object { top, left }.', async () => {
       const offset = await page.evaluate(() => {
+        const ElementMeasurer = window.ElementMeasurer.default;
         return new ElementMeasurer('#target').getOffset();
       });
-      expect(offset.hasOwnProperty('top')).to.be.true;
-      expect(offset.hasOwnProperty('left')).to.be.true;
+      expect(offset).to.have.property('top');
+      expect(offset).to.have.property('left');
     });
   });
 
   describe('#getRect', () => {
     it('returns a DOMRect object of target element', async () => {
       const instanceOfDomRect = await page.evaluate(() => {
+        const ElementMeasurer = window.ElementMeasurer.default;
         const targetRect = new ElementMeasurer('#target').getRect();
         return targetRect instanceof DOMRect;
       });
