@@ -7,9 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [1.4.2] - 2019-10-17
+## [1.4.4] - 2019-12-31
 
-### Updated
+- Changed test tool to "jest" and "ts-jest". #7
+
+## [1.4.2] - 2019-10-17
 
 - Update dependencies.
 
@@ -56,7 +58,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 First release. [README.md](https://github.com/archco/element-measurer/blob/master/README.md)
 
-[Unreleased]: https://github.com/archco/element-measurer/compare/v1.4.0...HEAD
+[Unreleased]: https://github.com/archco/element-measurer/compare/v1.4.4...HEAD
+[1.4.4]: https://github.com/archco/element-measurer/compare/v1.4.2...v1.4.4
+[1.4.2]: https://github.com/archco/element-measurer/compare/v1.4.0...v1.4.2
 [1.4.0]: https://github.com/archco/element-measurer/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/archco/element-measurer/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/archco/element-measurer/compare/v1.1.0...v1.2.0

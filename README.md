@@ -4,7 +4,7 @@
 [![npm version](https://badge.fury.io/js/element-measurer.svg)](https://www.npmjs.com/package/element-measurer)
 [![Downloads](https://img.shields.io/npm/dm/element-measurer.svg)](https://www.npmjs.com/package/element-measurer)
 
-The javascript library class for measures size of Element.
+A javascript class that provides convenience for measuring size to target such as element or document.
 
 ## Install
 
@@ -17,13 +17,13 @@ npm install element-measurer
 ``` js
 import ElementMeasurer from 'element-measurer';
 
-// Measures on a element.
+// Measures on an element.
 // target: HTMLElement | 'selector' | document | window
 const targetSize = new ElementMeasurer('#target');
 let max = targetSize.maxScrollTop; // get maxScrollTop.
 
 // Measures on the whole Document.
-const docSize = new ElementMeasurer(document);
+const docSize = new ElementMeasurer();
 docSize.scrollTop = 200; // set scrollTop.
 ```
 
@@ -48,38 +48,38 @@ docSize.scrollTop = 200; // set scrollTop.
 
 Set target element.
 
-- Syntax
+Syntax
 
-  ``` js
-  elementMeasurer.setTarget(target);
-  ```
+``` js
+elementMeasurer.setTarget(target);
+```
 
-- Param `Element|String|Window|Document` target
-- Returns `ElementMeasurer`
+- @param `Element|String|Window|Document` target
+- @returns `ElementMeasurer`
 
 #### getOffset
 
 Returns top and left values that indicates offset distance to html document.
 
-- Syntax
+Syntax
 
-  ``` js
-  let obj = elementMeasurer.getOffset();
-  ```
+``` js
+let obj = elementMeasurer.getOffset();
+```
 
-- Returns `Object` { top, left }
+- @returns `Object` { top, left }
 
 #### getRect
 
 Returns DOMRect object of the target element.
 
-- Syntax
+Syntax
 
-  ``` js
-  let domRect = elementMeasurer.getRect();
-  ```
+``` js
+let domRect = elementMeasurer.getRect();
+```
 
-- Returns [`DOMRect`](https://developer.mozilla.org/en-US/docs/Web/API/DOMRect#Properties)
+- @returns [`DOMRect`](https://developer.mozilla.org/en-US/docs/Web/API/DOMRect#Properties)
 
 ## License
 
