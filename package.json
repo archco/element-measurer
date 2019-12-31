@@ -8,7 +8,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha \"./test/*.spec.js\"",
+    "test": "jest",
     "build": "webpack --hide-modules",
     "watch": "npm run build -- --watch"
   },
@@ -27,23 +27,23 @@
   },
   "homepage": "https://github.com/archco/element-measurer#readme",
   "devDependencies": {
-    "@types/chai": "^4.2.7",
-    "@types/chai-as-promised": "^7.1.2",
-    "@types/mocha": "^5.2.7",
+    "@types/jest": "^24.0.25",
     "@types/puppeteer": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^2.11.0",
     "@typescript-eslint/parser": "^2.11.0",
-    "chai": "^4.2.0",
-    "chai-as-promised": "^7.1.1",
     "eslint": "^6.7.2",
-    "mocha": "^6.2.2",
+    "jest": "^24.9.0",
     "puppeteer": "^2.0.0",
     "source-map-loader": "^0.2.4",
+    "ts-jest": "^24.2.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.3",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-merge": "^4.2.2",
     "webpack-notifier": "^1.8.0"
+  },
+  "jest": {
+    "preset": "ts-jest"
   }
 }
