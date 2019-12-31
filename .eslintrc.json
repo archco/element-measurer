@@ -4,7 +4,7 @@
         "node": true,
         "commonjs": true,
         "es6": true,
-        "mocha": true
+        "jest": true
     },
     "extends": [
         "eslint:recommended",
@@ -12,11 +12,13 @@
     ],
     "globals": {
         "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
+        "SharedArrayBuffer": "readonly",
+        "ElementMeasurer": "readonly"
     },
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaVersion": 2018
+        "ecmaVersion": 2018,
+        "sourceType": "module"
     },
     "plugins": [
         "@typescript-eslint"
