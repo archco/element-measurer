@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## 1.4.5 - 2022-02-15
+
+- Update dependencies.
+
 ## [1.4.4] - 2019-12-31
 
 - Changed test tool to "jest" and "ts-jest". #7
